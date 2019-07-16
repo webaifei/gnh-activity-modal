@@ -1,18 +1,19 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
+    <img @click="showModal" alt="Vue logo" src="./assets/logo.png" />
     <gnh-activity-modal
+      ref="modal"
       :closeBtn="require('./assets/close-btn.png')"
       :topImg="require('./assets/reward_mask.png')"
-      :centerIcon="require('./assets/reward_success_icon.png')"
+      :centerIcon="require('./assets/has_bought.png')"
+      centerIconWidth="57"
       @onClick="clickHandle"
-      :show="modalShow"/>
+      />
   </div>
 </template>
 
 <script>
 import GnhActivityModal from './gnh-activity-modal'
-import { setTimeout } from 'timers'
 
 export default {
   name: 'demo',
@@ -24,17 +25,22 @@ export default {
   components: {
     [GnhActivityModal.name]: GnhActivityModal
   },
+  created () {
+    setInterval(() => {
+      console.log(this.modalShow)
+    }, 1000)
+  },
   methods: {
     clickHandle (e) {
       console.log(e)
-      this.modalShow = false
+      // this.$refs.modal.toggle()
+      this.$refs.modal.$hide()
+    },
+    showModal () {
+      this.$refs.modal.toggle()
     }
-  },
-  created () {
-    setTimeout(() => {
-      this.modalShow = true
-    }, 1000)
   }
+
 }
 </script>
 <style lang="stylus">

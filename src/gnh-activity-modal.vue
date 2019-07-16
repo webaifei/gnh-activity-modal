@@ -1,6 +1,8 @@
 <template>
   <div class="withdraw-dialog">
-    <md-landscape v-model="show" :has-mask="hasMask" :mask-closable="maskClosable">
+    <md-landscape v-model="show"
+      :has-mask="hasMask"
+      :mask-closable="maskClosable">
       <section class="dialog">
         <img class="top-img" :src="topImg" alt="">
         <slot name="close-btn">
@@ -11,7 +13,7 @@
           />
         </slot>
         <slot name="modal-center">
-          <img class="center-icon" :src="centerIcon" alt="" />
+          <img :style="{width: `${centerIconWidth/301*100}%`}" class="center-icon" :src="centerIcon" alt="" />
         </slot>
         <p v-if="contentTitle" class="content-title">{{contentTitle}}</p>
         <p v-if="contentSubTitle" class="content-subtitle">{{contentSubTitle}}</p>
@@ -28,15 +30,15 @@ import { Landscape } from 'mand-mobile'
 export default {
   name: 'gnh-activity-modal',
   props: {
-    show: {
-      type: Boolean,
-      default: true
-    },
     topImg: {
       type: String
     },
     centerIcon: {
       type: String
+    },
+    centerIconWidth: {
+      type: [String, Number],
+      default: 82
     },
     closeBtn: {
       type: String,
@@ -65,6 +67,7 @@ export default {
   },
   data () {
     return {
+      show: false
     }
   },
   components: {
@@ -73,6 +76,15 @@ export default {
   methods: {
     clickHandle (e) {
       this.$emit('onClick', e)
+    },
+    toggle () {
+      this.show = !this.show
+    },
+    $show () {
+      this.show = true
+    },
+    $hide () {
+      this.show = false
     }
   }
 }
@@ -112,8 +124,6 @@ p
     .center-icon
       margin-top 15px
       display inline-block
-      width 82px
-      height 82px
     .content-title
       font-size 16px
       line-height 25px

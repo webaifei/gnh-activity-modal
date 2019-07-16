@@ -24,14 +24,15 @@ components: {
   :closeBtn="require('./assets/close-btn.png')"
   :topImg="require('./assets/reward_mask.png')"
   :centerIcon="require('./assets/reward_success_icon.png')"
-  :show="modalShow"
+  ref="modal"
   @onClick="clickHandle"
   />
 
 // methods
  methods: {
     clickHandle (e) {
-      this.modalShow = false
+      this.$refs.modal.$hide()
+      // 或者使用 this.$refs.modal.toggle()
     }
   },
 
@@ -40,10 +41,10 @@ components: {
 ### props
 |属性|说明|类型|默认值|
 |---|----|----|----|
-|show|是否展示|Boolean|false|
 |closeBtn|关闭按钮图片|使用require加载图片资源|无|
 |topImg|弹窗顶部图片|使用require加载图片资源|无|
 |centerIcon|弹窗中间位置的图片|使用require加载图片资源|无|
+|centerIconWidth|弹窗中间位置的图片的宽度|String Number|82|
 |contentTitle|主标题|String|确认加速该订单吗|
 |contentSubTitle|副标题|String|确认后不可修改|
 |btnText|按钮文案|String|确认|
@@ -57,3 +58,10 @@ components: {
 |close-btn|关闭按钮插槽|closeBtn图片|
 |modal-center|中间内容插槽|centerIcon图片icon|
 |modal-bottom|弹窗底部插槽|确认按钮|
+
+### 方法
+|方法名|说明|示例|
+|---|----|----|
+|toggle|切换弹窗状态|`this.$refs.modal.toggle()`|
+|$show|展示弹窗|`this.$refs.modal.$show()`|
+|$hide|关闭弹窗|`this.$refs.modal.$hide()`|
