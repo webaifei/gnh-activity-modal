@@ -12,7 +12,7 @@
 
 <script>
 import GnhActivityModal from './gnh-activity-modal'
-import { setTimeout } from 'timers';
+import { setTimeout } from 'timers'
 
 export default {
   name: 'demo',
@@ -31,7 +31,7 @@ export default {
     }
   },
   created () {
-    setTimeout(()=> {
+    setTimeout(() => {
       this.modalShow = true
     }, 1000)
   }

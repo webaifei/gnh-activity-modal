@@ -1,6 +1,6 @@
 {
   "name": "gnh-activity-modal",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "dist/GnhActivityModal.umd.min.js",
   "private": false,
   "scripts": {
