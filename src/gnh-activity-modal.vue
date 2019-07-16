@@ -129,6 +129,6 @@ p
       border-radius 20px
       color #fff
       letter-spacing 2px
-      background linear-gradient(to top, #fd700d, #fdc33c)
+      background linear-gradient(to top, #fc5037, #fca135)
       font-size 16px
 </style>
