@@ -24,6 +24,7 @@ components: {
   :closeBtn="require('./assets/close-btn.png')"
   :topImg="require('./assets/reward_mask.png')"
   :centerIcon="require('./assets/reward_success_icon.png')"
+   @onHide="onHide"
   ref="modal"
   @onClick="clickHandle"
   />
@@ -33,6 +34,9 @@ components: {
     clickHandle (e) {
       this.$refs.modal.$hide()
       // 或者使用 this.$refs.modal.toggle()
+    },
+    onHide () {
+      console.log('hide')
     }
   },
 
@@ -65,3 +69,9 @@ components: {
 |toggle|切换弹窗状态|`this.$refs.modal.toggle()`|
 |$show|展示弹窗|`this.$refs.modal.$show()`|
 |$hide|关闭弹窗|`this.$refs.modal.$hide()`|
+
+
+### 通知
+|方法名|说明|示例|
+|---|----|----|
+|onHide|弹窗关闭时候触发||

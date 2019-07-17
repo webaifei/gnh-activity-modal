@@ -6,6 +6,7 @@
       :closeBtn="require('./assets/close-btn.png')"
       :topImg="require('./assets/reward_mask.png')"
       :centerIcon="require('./assets/has_bought.png')"
+      @onHide="onHide"
       centerIconWidth="57"
       @onClick="clickHandle"
       />
@@ -37,7 +38,11 @@ export default {
       this.$refs.modal.$hide()
     },
     showModal () {
-      this.$refs.modal.toggle()
+      // this.$refs.modal.toggle()
+      this.$refs.modal.$show()
+    },
+    onHide () {
+      console.log('hide')
     }
   }
 

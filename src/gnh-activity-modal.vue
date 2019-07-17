@@ -2,6 +2,7 @@
   <div class="withdraw-dialog">
     <md-landscape v-model="show"
       :has-mask="hasMask"
+      @hide="onHide"
       :mask-closable="maskClosable">
       <section class="dialog">
         <img class="top-img" :src="topImg" alt="">
@@ -85,6 +86,9 @@ export default {
     },
     $hide () {
       this.show = false
+    },
+    onHide (e) {
+      this.$emit('onHide', e)
     }
   }
 }

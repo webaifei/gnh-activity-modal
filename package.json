@@ -1,12 +1,14 @@
 {
   "name": "gnh-activity-modal",
-  "version": "1.0.6",
+  "version": "1.0.9",
   "main": "dist/GnhActivityModal.umd.min.js",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name GnhActivityModal ./src/index.js",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "predeploy": "npm run build",
+    "deploy": "npm publish"
   },
   "dependencies": {
     "core-js": "^2.6.5",
